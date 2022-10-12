@@ -23,10 +23,11 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="../dist/output.css" rel="stylesheet">
+    <title>Amahzone</title>
 </head>
 <body>
-    <h1><?php 
+    <h1 class="bg-gre text-center"><?php 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
@@ -38,5 +39,17 @@ $conn->close();
     
     ?>
 </h1>
+<?php
+
+    foreach ($result as $key=>$result) {
+        if($key % 2 == 0){
+            echo '<div class="grid grid-rows-4 grid-flow-col gap-4">';
+            echo '<div class="elementcontent">'. $result . '</div>';
+        } else {
+            echo '<div class="elementcontent">'. $result . '</div>';
+            echo '</div>';
+        }
+    }
+?>
 </body>
 </html>
