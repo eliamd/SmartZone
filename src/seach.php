@@ -10,9 +10,13 @@ $sql2 = ("SELECT COUNT(*) FROM article WHERE libele LIKE '%" . $queryss . "%';")
 $result2 = $connection->query($sql2);
 
 
-if (!$result2){
-  echo "invalid q";
+while($rrr = $result2->fetch_assoc()){ 
+  $num = $rrr['COUNT(*)'];
+  $int = (int)$num;
+  $float = (float)$num;
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +29,7 @@ if (!$result2){
     <title>Amahzone</title>
     <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
-<body class="min-h-screen">
+<body>
 
 
 <nav class="bg-white border-gray-200">
@@ -70,14 +74,20 @@ if (!$result2){
   </div>
 </nav>
 
-<div class="ml-auto mr-auto flex flex-col pt-10 min-h-[750px] max-w-[1200px]">
-  <div class="max">
-  <h2 class="text-4xl font-bold">Recherche.</h2>
-  <p class="text-lg font-normal text-gray-500 :uppercase">Pour  "<?php echo $_GET["query"]; ?>" vous obtenez <?php while ($row2 = $result2->fetch_assoc()) {echo $row2['COUNT(*)'];} ?> résultats.</p>
-  </div>
-<div class="grid py-12 grid-cols-4 gap-10 max-w-[1200px]">
-<?php
 
+<?php
+if($float != 0){
+  echo "<div class='ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]'>
+  <div class='ml-auto mr-auto flex flex-col pt-10 min-h-[750px] max-w-[1200px]'>
+  <div class='max'>
+  <h2 class='text-4xl font-bold'>Recherche.</h2>
+  <p class='text-lg font-normal text-gray-500 :uppercase'>Pour  ' " . $_GET["query"] . " ' vous obtenez " .  $float . " résultats.</p>
+
+
+  <div class='grid py-12 grid-cols-4 gap-10 max-w-[1200px]'>
+
+
+  ";
 
 
 while($row = $result->fetch_assoc()){
@@ -94,11 +104,29 @@ while($row = $result->fetch_assoc()){
     </div>
   </dir> 
 </div>";
+};
+
+}else{
+
+echo "
+
+<section class='bg-white min-h-[750px] dark:bg-gray-900'>
+    <div class='px-4 mx-auto max-w-screen-xl'>
+        <div class='mx-auto max-w-screen-sm pt-[20%] text-center'>
+            <h1 class='mb-4 text-7xl tracking-tight font-extrabold text-primary-600 '>Aucun résultat</h1>
+            <p class='mb-4 text-lg font-light text-gray-500 dark:text-gray-400'>On a cherché partout : le produit que vous désirez n'existe pas sur notre plate-forme. Essayez autre chose ou allez voir nos autres smartphones.</p>
+            <a href='smartphones.php' class='inline-flex text-white bg-orange-500 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4'>Retourner aux smartphones</a>
+        </div>   
+    </div>
+</section>
+
+";
 
 }
-
 ?>
 
+</div>
+</div>
 </div>
 </div>
 
@@ -125,7 +153,6 @@ while($row = $result->fetch_assoc()){
     </div>
     <hr class=" border-gray-200 my-7">
 </footer>
-
 
 
 

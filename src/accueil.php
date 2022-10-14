@@ -50,7 +50,7 @@ if (!$result){
                   <a href="#" class="text-gray-900 " aria-current="page">Accueil</a>
               </li>
               <li>
-                  <a href="#" class="text-gray-900">Smartphones</a>
+                  <a href="smartphones.php" class="text-gray-900">Smartphones</a>
               </li>
               <li>
                   <a href="#" class="text-gray-900 ">Garantie</a>

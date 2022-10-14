@@ -47,7 +47,7 @@ if (!$result){
       <div class="flex items-center">
           <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
               <li>
-                  <a href="#" class="text-gray-900 " aria-current="page">Accueil</a>
+                  <a href="accueil.php" class="text-gray-900 " aria-current="page">Accueil</a>
               </li>
               <li>
                   <a href="#" class="text-gray-900">Smartphones</a>
