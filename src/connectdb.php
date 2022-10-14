@@ -10,11 +10,4 @@ $connection = new mysqli($servername, $username, $password, $database);
 if ($connection->connect_error) {
   echo "nope:";
 }
-
-$sql = "SELECT * FROM article";
-$result = $connection->query($sql);
-
-if (!$result){
-  echo "invalid q";
-}
 ?>
