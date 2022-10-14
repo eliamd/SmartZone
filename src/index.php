@@ -1,22 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "amahzone";
-
-$connection = new mysqli($servername, $username, $password, $database);
-
-if ($connection->connect_error) {
-  echo "nope:";
-}
-
-$sql = "SELECT * FROM article";
-$result = $connection->query($sql);
-
-if (!$result){
-  echo "invalid q";
-}
+include 'database.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,50 +10,64 @@ if (!$result){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
     <title>Amahzone</title>
+    <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
 
 
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-  <div class="container flex flex-wrap justify-between items-center mx-auto">
-  <a href="https://flowbite.com/" class="flex items-center">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
-      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-  </a>
-  <div class="flex md:order-2">
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button>
-      <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
+<nav class="bg-white border-gray-200">
+  <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+      <a href="#" class="flex items-center">
+        <img src="../content/img/logo.png" class="mr-3 h-10" alt="">
+        <span class="self-center text-xl font-semibold whitespace-nowrap"></span>
+      </a>
+      <form class="w-[60%] max-w-[1000px]" action="seach.php" method="post">   
+        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Recherche</label>
+        <div class="relative">
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <input type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-orange-500 focus:border-orange-500 " placeholder="Essayez Iphone 14, Samsung ..." required="">
+            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2">Rechercher</button>
+        </div>
+      </form>
+      <div class="flex items-center">
+        <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-orange-700 focus:z-10 focus:ring-4 focus:ring-gray-200">S'inscrire</button>
+        <button type="button" class="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Connexion</button>
+      </div>
   </div>
-  <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-    <ul class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <li>
-        <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-      </li>
-    </ul>
-  </div>
+</nav>
+<nav class="bg-gray-50">
+  <div class="py-3 px-4 mx-auto max-w-screen-xl md:px-6">
+      <div class="flex items-center">
+          <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
+              <li>
+                  <a href="#" class="text-gray-900 " aria-current="page">Accueil</a>
+              </li>
+              <li>
+                  <a href="#" class="text-gray-900">Smartphones</a>
+              </li>
+              <li>
+                  <a href="#" class="text-gray-900 ">Garantie</a>
+              </li>
+              <li>
+                  <a href="#" class="text-gray-900 ">A propos</a>
+              </li>
+          </ul>
+      </div>
   </div>
 </nav>
 
 
-<div>
-<div class="ml-auto mr-auto">
-  
 
-<h2 class="text-4xl font-bold dark:text-white">Nos Smartphones.</h2>
+
+<div class="ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]">
+  <div class="max">
+  <h2 class="text-4xl font-bold">Nos Smartphones.</h2>
+  <p class="text-lg font-normal text-gray-500">iPhone, Samsung, Xiaomi, OPPO, Huawei… Nous espérons que vous trouverez votre bonheur parmi les dizaines de smartphones que nous avons sélectionnés au sein des plus grandes marques.</p>
+  </div>
+
 <div class="grid py-12 grid-cols-4 gap-10 max-w-[1200px]">
-
 <?php
 
 while($row = $result->fetch_assoc()){
@@ -92,20 +89,16 @@ while($row = $result->fetch_assoc()){
 
 ?>
 
-
 </div>
 </div>
-</div>
 
-
-
-<footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
+<footer class="p-4 bg-white drop-shadow-lg rounded-lg shadow md:px-6 md:py-8">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="Flowbite Logo">
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+      <img src="../content/img/logo.png" class="mr-3 h-10" alt="">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap"></span>
         </a>
-        <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
             <li>
                 <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
             </li>
@@ -120,10 +113,8 @@ while($row = $result->fetch_assoc()){
             </li>
         </ul>
     </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+    <hr class=" border-gray-200 my-7">
 </footer>
 
-
 </body>
-
 </html>
