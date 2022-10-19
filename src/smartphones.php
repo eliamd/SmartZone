@@ -24,6 +24,74 @@ if (!$result){
 include 'navbar.php';
 ?>
 
+
+<form action="seach.php" method="get">
+<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Couleur</h3>
+<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-couleur1" type="radio" value="color LIKE 'Noir' " name="couleur" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-couleur1" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Noir</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-couleur2" type="radio" value="color LIKE 'Bleu' " name="couleur" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-couleur2" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Bleu</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-couleur3" type="radio" value="color LIKE 'Vert' " name="couleur" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-couleur3" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Vert</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-couleur4" type="radio" value="color LIKE 'Gris' " name="couleur" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-couleur4" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Gris</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+      <div class="flex items-center pl-3">
+          <input id="list-couleur5" type="radio" value="color LIKE 'Rouge' " name="couleur" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+          <label for="list-couleur5" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Rouge</label>
+      </div>
+  </li>
+</ul>
+<h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Capacité</h3>
+<ul class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-radio-license" type="radio" value=" AND spce_data LIKE '32'" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-radio-license" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">32 GO</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-radio-id" type="radio" value=" AND spce_data LIKE '64'" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-radio-id" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">64 Go</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-radio-millitary" type="radio" value=" AND spce_data LIKE '128'" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-radio-millitary" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">128 Go</label>
+        </div>
+    </li>
+    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+        <div class="flex items-center pl-3">
+            <input id="list-radio-passport" type="radio" value=" AND spce_data LIKE '256'" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            <label for="list-radio-passport" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">256 Go</label>
+        </div>
+    </li>
+</ul>
+<button type="submit" class="text-white bg-orange-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Valider</button>
+<button type="reset" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">Reset</button>
+</form>
+
+
+
 <div class="ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]">
   <div class="max">
   <h2 class="text-4xl font-bold">Nos Smartphones.</h2>
@@ -41,8 +109,8 @@ while($row = $result->fetch_assoc()){
      </div>
      <dir class='flex flex-col pl-5 pr-5'>
        <div>
-         <h3>" . $row["libele"] . "</h3>
-       </div>
+        <h3>" . $row["marque"] . " " . $row["libele"] . " (" . $row["spce_data"] . " Go) - " . $row["color"] . "</h3>
+      </div>
        <div>
          <h3 class='text-2xl font-semibold'>" . $row["prixu"] . " €" ."</h3>
        </div>

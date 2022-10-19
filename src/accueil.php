@@ -50,7 +50,7 @@ while($row = $result->fetch_assoc()){
   </div>
   <dir class='flex flex-col pl-5 pr-5'>
     <div>
-      <h3>" . $row["libele"] . "</h3>
+        <h3>" . $row["marque"] . " " . $row["libele"] . " (" . $row["spce_data"] . " Go) - " . $row["color"] . "</h3>
     </div>
     <div>
       <h3 class='text-2xl font-semibold'>" . $row["prixu"] . " €" ."</h3>

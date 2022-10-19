@@ -1,12 +1,51 @@
 <?php
 include 'connectdb.php';
 
-$queryss = $_GET["query"];
+if(isset($_GET["couleur"])){
+  $querycouleur = $_GET["couleur"];
+}else{
+  $querycouleur = 1;
+}
 
-$sql = ("SELECT * FROM article WHERE libele LIKE '%" . $queryss . "%';");
+if( isset($_GET["list-radio"])){
+  $querysize = $_GET["list-radio"];
+}else{
+  $querysize = " AND 1";
+}
+
+if( isset($_GET["list-radio"])){
+  $querysize = $_GET["list-radio"];
+}else{
+  $querysize = " AND 1";
+}
+
+if( isset($querycouleur) && isset($querysize) ){
+
+
+  @$sql = ("SELECT * FROM article WHERE ". $querycouleur . "" . $querysize . ";");
+  $result = $connection->query($sql);
+
+  @$sql2 = ("SELECT COUNT(*) FROM article WHERE ". $querycouleur . "" . $querysize . ";");
+  $result2 = $connection->query($sql2);
+
+
+while($rrr = $result2->fetch_assoc()){ 
+  $num = $rrr['COUNT(*)'];
+  $int = (int)$num;
+  $float = (float)$num;
+
+}
+
+}
+
+
+
+if( isset($_GET["query"])){
+  $queryss = $_GET["query"];
+  @$sql = ("SELECT * FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
 $result = $connection->query($sql);
 
-$sql2 = ("SELECT COUNT(*) FROM article WHERE libele LIKE '%" . $queryss . "%';");
+@$sql2 = ("SELECT COUNT(*) FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
 $result2 = $connection->query($sql2);
 
 
@@ -15,6 +54,13 @@ while($rrr = $result2->fetch_assoc()){
   $int = (int)$num;
   $float = (float)$num;
 
+}
+}
+
+if( isset($_GET["query"])){
+  $querypri = "' " .$_GET["query"] . " '";
+}else{
+  $querypri = "votre recherche";
 }
 
 ?>
@@ -36,12 +82,12 @@ include 'navbar.php';
 ?>
 
 <?php
-if($float != 0){
+if(@$float != 0){
   echo "<div class='ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]'>
   <div class='ml-auto mr-auto flex flex-col pt-10 min-h-[750px] max-w-[1200px]'>
   <div class='max'>
   <h2 class='text-4xl font-bold'>Recherche.</h2>
-  <p class='text-lg font-normal text-gray-500 :uppercase'>Pour  ' " . $_GET["query"] . " ' vous obtenez " .  $float . " résultats.</p>
+  <p class='text-lg font-normal text-gray-500 :uppercase'>Pour   " . $querypri . "  vous obtenez " .  $float . " résultats.</p>
 
 
   <div class='grid py-12 grid-cols-4 gap-10 max-w-[1200px]'>
@@ -58,7 +104,7 @@ while($row = $result->fetch_assoc()){
      </div>
      <dir class='flex flex-col pl-5 pr-5'>
        <div>
-         <h3>" . $row["libele"] . "</h3>
+       <h3>" . $row["marque"] . " " . $row["libele"] . " (" . $row["spce_data"] . " Go) - " . $row["color"] . "</h3>
        </div>
        <div>
          <h3 class='text-2xl font-semibold'>" . $row["prixu"] . " €" ."</h3>
