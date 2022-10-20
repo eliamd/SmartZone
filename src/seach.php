@@ -18,16 +18,14 @@ if( isset($_GET["size"])){
 }else{
   $querysize = " AND 1";
 }
-
  
 
-if( ($querycouleur != "AND 1") && ($querymarque != "1") && ($querysize != "AND 1") ){
+if(($querymarque !== "1") OR ($querycouleur !== "AND 1") OR ($querysize !== "AND 1") ){
 
-
-  @$sql = ("SELECT * FROM article WHERE " . $querymarque . "". $querycouleur . "" . $querysize . ";");
+  @$sql = ("SELECT * FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
   $result = $connection->query($sql);
 
-  @$sql2 = ("SELECT COUNT(*) FROM article WHERE " . $querymarque . "". $querycouleur . "" . $querysize . ";");
+  @$sql2 = ("SELECT COUNT(*) FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
   $result2 = $connection->query($sql2);
 
 
@@ -37,7 +35,6 @@ while($rrr = $result2->fetch_assoc()){
   $float = (float)$num;
 
 }
-
 }
 
 
