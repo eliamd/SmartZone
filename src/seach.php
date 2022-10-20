@@ -1,31 +1,33 @@
 <?php
 include 'connectdb.php';
 
+if(isset($_GET["marque"])){
+  $querymarque = $_GET["marque"];
+}else{
+  $querymarque = "1";
+}
+
 if(isset($_GET["couleur"])){
   $querycouleur = $_GET["couleur"];
 }else{
-  $querycouleur = 1;
+  $querycouleur = "AND 1";
 }
 
-if( isset($_GET["list-radio"])){
-  $querysize = $_GET["list-radio"];
+if( isset($_GET["size"])){
+  $querysize = $_GET["size"];
 }else{
   $querysize = " AND 1";
 }
 
-if( isset($_GET["list-radio"])){
-  $querysize = $_GET["list-radio"];
-}else{
-  $querysize = " AND 1";
-}
+ 
 
-if( isset($querycouleur) && isset($querysize) ){
+if( ($querycouleur != "AND 1") && ($querymarque != "1") && ($querysize != "AND 1") ){
 
 
-  @$sql = ("SELECT * FROM article WHERE ". $querycouleur . "" . $querysize . ";");
+  @$sql = ("SELECT * FROM article WHERE " . $querymarque . "". $querycouleur . "" . $querysize . ";");
   $result = $connection->query($sql);
 
-  @$sql2 = ("SELECT COUNT(*) FROM article WHERE ". $querycouleur . "" . $querysize . ";");
+  @$sql2 = ("SELECT COUNT(*) FROM article WHERE " . $querymarque . "". $querycouleur . "" . $querysize . ";");
   $result2 = $connection->query($sql2);
 
 
