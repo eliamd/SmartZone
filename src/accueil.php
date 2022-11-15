@@ -38,7 +38,7 @@ include 'navbar.php';
 
 <section class="py-8 bg-gray-50">
 <div class="ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]">
-<h4 class="ml-auto mr-auto text-5xl font-extrabold tracking-tight leading-none text-gray-900">Nos <mark class="px-2 text-white bg-orange-500 rounded">meilleurs</mark> ventes :</h4>
+<h4 class="ml-auto mr-auto text-5xl font-extrabold tracking-tight leading-none text-gray-900">Nos <mark class="px-2 text-white bg-orange-500 rounded">meilleures</mark> ventes :</h4>
 <div class="grid py-12 grid-cols-4 gap-10 max-w-[1200px]">
 <?php
 
@@ -65,6 +65,7 @@ while($row = $result->fetch_assoc()){
 </div>
 </div>
 </section>
+
 
 
 <?php

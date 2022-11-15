@@ -6,16 +6,16 @@
         </a>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0">
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">A propos</a>
             </li>
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                <a href="#" class="mr-4 hover:underline md:mr-6">Mentions légales</a>
             </li>
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
+                <a href="#" class="mr-4 hover:underline md:mr-6 ">Nos conditions de Vente</a>
             </li>
             <li>
-                <a href="#" class="hover:underline">Contact</a>
+                <a href="#" class="hover:underline">Contactez-nous</a>
             </li>
         </ul>
     </div>
