@@ -1,7 +1,6 @@
 <?php
 include 'connectdb.php';
-$sql = "SELECT * FROM article LIMIT 4;";
-$result = $connection->query($sql);
+$topsmart = $bdd->query("SELECT * FROM article LIMIT 4;");
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ include 'navbar.php';
 <div class="grid py-12 grid-cols-4 gap-10 max-w-[1200px]">
 <?php
 
-while($row = $result->fetch_assoc()){
+while($row = $topsmart->fetch()){
  echo "<a href='produit.php?id=" . $row["id"] . "'>
  <div class='w-60 h-80 rounded-lg bg-gray-50 drop-shadow-lg flex flex-col justify-center'>
   <div class='mr-auto ml-auto mt-2'>
@@ -58,7 +57,6 @@ while($row = $result->fetch_assoc()){
   </dir> 
 </div>
 </a>";
-
 }
 
 ?>

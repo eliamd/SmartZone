@@ -22,14 +22,12 @@ if( isset($_GET["size"])){
 
 if(($querymarque !== "1") OR ($querycouleur !== "AND 1") OR ($querysize !== "AND 1") ){
 
-  @$sql = ("SELECT * FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
-  $result = $connection->query($sql);
 
-  @$sql2 = ("SELECT COUNT(*) FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
-  $result2 = $connection->query($sql2);
+  @$result = $bdd->query("SELECT * FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
+  @$result2 = $bdd->query("SELECT COUNT(*) FROM article WHERE " . $querymarque . " ". $querycouleur . " " . $querysize . ";");
 
 
-while($rrr = $result2->fetch_assoc()){ 
+while($rrr = $result2->fetch()){ 
   $num = $rrr['COUNT(*)'];
   $int = (int)$num;
   $float = (float)$num;
@@ -41,14 +39,12 @@ while($rrr = $result2->fetch_assoc()){
 
 if( isset($_GET["query"])){
   $queryss = $_GET["query"];
-  @$sql = ("SELECT * FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
-$result = $connection->query($sql);
-
-@$sql2 = ("SELECT COUNT(*) FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
-$result2 = $connection->query($sql2);
+  @$result = $bdd->query("SELECT * FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
+  @$result2 = $bdd->query("SELECT COUNT(*) FROM article WHERE libele LIKE '%" . $queryss . "%' OR marque LIKE '%" . $queryss . "%';");
 
 
-while($rrr = $result2->fetch_assoc()){ 
+
+while($rrr = $result2->fetch()){ 
   $num = $rrr['COUNT(*)'];
   $int = (int)$num;
   $float = (float)$num;
@@ -56,7 +52,7 @@ while($rrr = $result2->fetch_assoc()){
 }
 }
 
-if( isset($_GET["query"])){
+if(isset($_GET["query"])){
   $querypri = "' " .$_GET["query"] . " '";
 }else{
   $querypri = "votre recherche";
@@ -95,7 +91,7 @@ if(@$float != 0){
   ";
 
 
-while($row = $result->fetch_assoc()){
+while($row = $result->fetch()){
   echo "<a href='produit.php?id=" . $row["id"] . "'>
     <div class='w-60 h-80 rounded-lg bg-gray-50 drop-shadow-lg flex flex-col justify-center'>
      <div class='mr-auto ml-auto mt-2'>

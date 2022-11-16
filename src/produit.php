@@ -3,8 +3,8 @@ include 'connectdb.php';
 
 $queryss = $_GET["id"];
 
-$sql = ("SELECT * FROM article WHERE id LIKE " . $queryss . ";");
-$result = $connection->query($sql);
+$result = $bdd->query("SELECT * FROM article WHERE id LIKE " . $queryss . ";");
+
 
 ?>
 
@@ -26,7 +26,7 @@ include 'navbar.php';
 ?>
 
 <?php
-while($row = $result->fetch_assoc()){
+while($row = $result->fetch()){
   echo "
   
 
