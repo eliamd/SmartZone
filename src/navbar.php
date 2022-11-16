@@ -1,3 +1,10 @@
+<?php
+
+require_once 'connectdb.php';
+
+session_start();
+?>
+
 <nav class="bg-white border-gray-200">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
         <a href="accueil.php" class="flex items-center">
@@ -13,12 +20,36 @@
               <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2">Rechercher</button>
           </div>
         </form>
-        <div class="flex items-center">
-          <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-orange-700 focus:z-10 focus:ring-4 focus:ring-gray-200">S'inscrire</button>
-          <a href="connexion.php">
-          <button type="button" class="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Connexion</button>
-          </a>
-        </div>
+        <?php
+        
+        if(isset($_SESSION['user'])){
+            echo "
+            
+            <div class='flex items-center'>
+            <button type='button' class='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-orange-700 focus:z-10 focus:ring-4 focus:ring-gray-200'>S'inscrire</button>
+            <a href='accueil.php?deco=true'>
+                <button type='button' class='text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2'>Deconnexion</button>
+            </a>
+            </div>
+            
+            ";
+        }else{
+            echo "
+            
+            <div class='flex items-center'>
+            <button type='button' class='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-orange-700 focus:z-10 focus:ring-4 focus:ring-gray-200'>S'inscrire</button>
+            <a href='connexion.php'>
+                <button type='button' class='text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2'>Connexion</button>
+            </a>
+            </div>
+            
+            ";
+        }
+        
+        ?>
+
+
+        
     </div>
   </nav>
   <nav class="bg-gray-50">
