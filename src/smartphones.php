@@ -3,7 +3,6 @@ include 'connectdb.php';
 
 $result = $bdd->query("SELECT * FROM article;");
 
-
 if (!$result){
   echo "invalid q";
 }

@@ -1,4 +1,3 @@
-console.log('hey');
 const trigg = document.getElementById('close');
 const target = document.getElementById('notif');
 

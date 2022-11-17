@@ -4,6 +4,15 @@ $topsmart = $bdd->query("SELECT * FROM article LIMIT 4;");
 
 session_start();
 
+$user = $_SESSION['user'];
+
+$userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
+$data = $userinfo->fetch();
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +73,7 @@ include 'navbar.php';
     </div>
 </section>
 
+
 <section class="py-8 bg-gray-50">
 <div class="ml-auto mr-auto flex flex-col pt-10 max-w-[1200px]">
 <h4 class="ml-auto mr-auto text-5xl font-extrabold tracking-tight leading-none text-gray-900">Nos <mark class="px-2 text-white bg-orange-500 rounded">meilleures</mark> ventes :</h4>
@@ -95,9 +105,11 @@ while($row = $topsmart->fetch()){
 
 
 
+
 <?php
 include 'footer.php';
 ?>
+<script src="../node_modules/flowbite/dist/flowbite.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
