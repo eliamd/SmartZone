@@ -4,3 +4,4 @@ const target = document.getElementById('notif');
 trigg.addEventListener('click', function handleClick(event) {
   target.remove();
 });
+

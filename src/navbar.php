@@ -9,7 +9,6 @@ $user = $_SESSION['user'];
 $userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
 $data = $userinfo->fetch();
 ?>
-
 <nav class="bg-white border-gray-200">
     <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
         <a href="accueil.php" class="flex items-center">
@@ -30,7 +29,15 @@ $data = $userinfo->fetch();
         if(isset($_SESSION['user'])){
             echo "
             
-            <div class='flex items-center'>
+            <div class='flex items-center justify-between'>
+
+              <a href='panier.php'>
+              <button type='button' class='inline-flex relative right-6 items-center p-3 text-sm font-medium text-center text-gray-500  rounded-lg hover:text-gray-400'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-cart-fill' viewBox='0 0 16 16'> <path d='M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/> </svg><div class='flex relative'>
+                  <div class='cartnbr inline-flex absolute -top-6 -right-4 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900'>0</div>
+              </button>
+            </a>
+
                 <div>
                     <button id='dropdownAvatarNameButton' data-dropdown-toggle='dropdownAvatarName' class='flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-white' type='button'>
                         <span class='sr-only'>Open user menu</span>
@@ -46,14 +53,9 @@ $data = $userinfo->fetch();
                         </div>
                         <ul class='py-1 text-sm text-gray-700 dark:text-gray-200' aria-labelledby='dropdownInformdropdownAvatarNameButtonationButton'>
                           <li>
-                            <a href='#' class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Dashboard</a>
+                            <a href='gestion.php' class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Tableau de bord</a>
                           </li>
-                          <li>
-                            <a href='#' class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Settings</a>
-                          </li>
-                          <li>
-                            <a href='#' class='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Earnings</a>
-                          </li>
+
                         </ul>
                         <div class='py-1'>
                           <a href='accueil.php?deco=true' class='block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>Deconnexion</a>
@@ -62,10 +64,18 @@ $data = $userinfo->fetch();
                     </div>
             </div>
             
-            ";
+            ";  
         }else{
             echo "
             
+            <a href='panier.php'>
+            <button type='button' class='inline-flex relative items-center p-3 text-sm font-medium text-center text-gray-500  rounded-lg hover:text-gray-400'>
+              <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-cart-fill' viewBox='0 0 16 16'> <path d='M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/> </svg><div class='flex relative'>
+                <div class='cartnbr inline-flex absolute -top-6 -right-4 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full border-2 border-white dark:border-gray-900'>0</div>
+            </button>
+            </a>
+            
+
             <div class='flex items-center'>
             <a href='inscription.php'>
             <button type='button' class='py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-orange-700 focus:z-10 focus:ring-4 focus:ring-gray-200'>S'inscrire</button>
@@ -78,10 +88,7 @@ $data = $userinfo->fetch();
             ";
         }
         
-        ?>
-
-
-        
+        ?>   
     </div>
   </nav>
   <nav class="bg-gray-50">
@@ -104,5 +111,5 @@ $data = $userinfo->fetch();
         </div>
     </div>
   </nav>
-
+  <script src="panieraff.js"></script>
   <script src="../node_modules/flowbite/dist/flowbite.js"></script>

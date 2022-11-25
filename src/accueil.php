@@ -4,14 +4,6 @@ $topsmart = $bdd->query("SELECT * FROM article LIMIT 4;");
 
 session_start();
 
-$user = $_SESSION['user'];
-
-$userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
-$data = $userinfo->fetch();
-
-
-
-
 
 ?>
 
@@ -22,10 +14,11 @@ $data = $userinfo->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <title>Amahzone</title>
+    <title>SmartZone</title>
     <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
+
 
 
 
@@ -68,7 +61,7 @@ include 'navbar.php';
             </a>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
+            <img src="../content/img/phone-mockup.png" alt="mockup">
         </div>                
     </div>
 </section>
@@ -97,7 +90,6 @@ while($row = $topsmart->fetch()){
 </div>
 </a>";
 }
-
 ?>
 </div>
 </div>

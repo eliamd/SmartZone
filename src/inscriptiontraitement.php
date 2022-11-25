@@ -30,7 +30,7 @@ if(isset($_POST['email']) && isset($_POST['nom']) && isset($_POST['prenom']) && 
                                 'prenom' => $prenom,
                                 'password' => $password,
                              ));
-                            header('Location:gestion.php?log_err=succes_ins');
+                            header('Location:inscription.php?log_err=succes_ins');
                         }else header('Location:inscription.php?log_err=passwordretype');
                     }else header('Location:inscription.php?log_err=email');
                 }else header('Location:inscription.php?log_err=email');

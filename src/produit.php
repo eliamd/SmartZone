@@ -15,10 +15,11 @@ $result = $bdd->query("SELECT * FROM article WHERE id LIKE " . $queryss . ";");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <title>Amahzone</title>
+    <title>SmartZone</title>
     <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
+
 
 
 <?php
@@ -56,24 +57,26 @@ while($row = $result->fetch()){
       </li>
     </ol>
     </nav>
-
       <div class=' py-20 flex justify-center'>
           <div class=''>
-            <img class='' src=" . $row["repimage"] . " alt='image description'>
+            <img id='imagetel' src=" . $row["repimage"] . " alt='image description'>
           </div>
           <div class='max-w-sm'>
             <div>
-              <h1 class='text-xl pt-2 font-bold'>" . $row["marque"] . "</h1>
+              <h1 id='pdrid' class=' text-xl pt-2 font-bold hidden'>" . $row["id"] . "</h1>
             </div>
             <div>
-              <h1 class='text-2xl font-bold'>" . $row["libele"] . "</h1>
+              <h1 id='prdmarque' class=' text-xl pt-2 font-bold'>" . $row["marque"] . "</h1>
+            </div>
+            <div>
+              <h1 id='prdlibele' class='produit text-2xl font-bold'>" . $row["libele"] . "</h1>
            </div>
            <div>
             <p class='max-w-sm text-left'>" . $row["description"] . "</p>
           </div>
           <hr class='my-3 h-px bg-gray-200 border-0'>
           <div class='flex flex-wrap gap-x-2'>
-          <p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Couleur : " . $row["color"] . "</p>
+          <p id='prdcouleur' class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Couleur : " . $row["color"] . "</p>
           <p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Capacité : " . $row["spce_data"] . " Go</p>
           <p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Garantie 24 mois</p>
           ";if($row["5G"] == 1){
@@ -82,10 +85,10 @@ while($row = $result->fetch()){
           }; echo "
           </div>
           <div>
-            <h2 class='text-4xl font-black'>" . $row["prixu"] . " €" ."</h2>
+            <h2 id='prdprix' class='text-4xl font-black'>" . $row["prixu"] . " €" ."</h2>
             <p class='text-sm'>0.02€ d'éco-part.</p>
           </div>
-          <button type='button' class='text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg  px-5 py-2.5 my-2 text-center inline-flex items-center mr-2'>
+          <button type='button' class='addpanier text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg  px-5 py-2.5 my-2 text-center inline-flex items-center mr-2'>
             <svg aria-hidden='true' class='mr-2 -ml-1 w-5 h-5' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path d='M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z'></path></svg>
             Ajouter au panier
           </button>
@@ -121,6 +124,6 @@ while($row = $result->fetch()){
 <?php
 include 'footer.php';
 ?>
-
+<script type="text/javascript" src="panier.js"></script>
 </body>
 </html>
