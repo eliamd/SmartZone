@@ -64,7 +64,7 @@ include 'navbar.php';
         <div class='border-t mt-8'>
           <div class='flex font-semibold justify-between py-6 text-sm uppercase'>
             <span>Prix total</span>
-            <span class='totalprice'>$600</span>
+            <span class='totalprice'>0€</span>
           </div>
           <button class='bg-orange-500 font-semibold hover:bg-orange-600 py-3 text-sm text-white uppercase w-full rounded-md'>Commander</button>
         </div>
