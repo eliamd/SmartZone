@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -49,24 +50,19 @@ include 'navbar.php';
 
       <div id='summary' class='w-1/4 px-8 py-10'>
         <h1 class='font-semibold text-2xl border-b pb-8'>Résumé de la commande</h1>
-        <div>
+        <div class='pb-3'>
           <label class='font-medium inline-block mb-3 text-sm uppercase pt-8'>Livraison</label>
           <select class='block p-2 text-gray-600 w-full text-sm rounded-xl'>
-            <option>Expédition standard - 10,00€</option>
-            <option>Expédition express - 20,00€</option>
+            <option>Expédition standard - Offerte</option>
+            <option>Expédition express - Offerte</option>
           </select>
         </div>
-        <div class='pt-10 pb-3'>
-          <label for='promo' class='font-semibold inline-block mb-3 text-sm uppercase'>Code Promo</label>
-          <input type='text' id='promo' placeholder='Entrez votre code' class='p-2 text-sm w-full rounded-xl'>
-        </div>
-        <button class='bg-orange-500 hover:bg-orange-600 px-5 py-2 text-sm text-white uppercase rounded-md'>Appliquer</button>
-        <div class='border-t mt-8'>
+         <div class='border-t mt-8'>
           <div class='flex font-semibold justify-between py-6 text-sm uppercase'>
             <span>Prix total</span>
             <span class='totalprice'>0€</span>
           </div>
-          <button class='bg-orange-500 font-semibold hover:bg-orange-600 py-3 text-sm text-white uppercase w-full rounded-md'>Commander</button>
+          <button id='orbtn' class='bg-orange-500 font-semibold hover:bg-orange-600 py-3 text-sm text-white uppercase w-full rounded-md'>Commander</button>
         </div>
       </div>
 

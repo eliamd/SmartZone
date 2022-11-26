@@ -161,6 +161,12 @@ function displaycart() {
         ttprice.innerHTML = z;
     }
 
+    if(nbitems != 0){
+        document.getElementById("orbtn").className = "bg-orange-500 font-semibold hover:bg-orange-600 py-3 text-sm text-white uppercase w-full rounded-md";
+    }else {
+        document.getElementById("orbtn").className = "bg-orange-400 font-semibold py-3 text-sm text-white uppercase w-full rounded-md cursor-not-allowed";
+    }
+
     deleteButtons();
     manageQuantity();
 
