@@ -1,5 +1,19 @@
 <?php
+
+header("Access-Control-Allow-Origin: *");
+//header('Content-Type: application/json');
+
+include 'connectdb.php';
 session_start();
+
+if(isset($_SESSION['user'])){
+
+  session_start();
+
+  $user = $_SESSION['user'];
+  $userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
+  $data = $userinfo->fetch();
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +25,10 @@ session_start();
     <link href="../dist/output.css" rel="stylesheet">
     <title>SmartZone</title>
     <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
 </head>
+
 <body class='bg-gray-100'>
 
 
@@ -73,7 +90,50 @@ include 'navbar.php';
 <?php
 include 'footer.php';
 ?>
+<script type="text/javascript">
 
-<script type="text/javascript" src="panier.js"></script>
+if(<?php echo isset($_SESSION['user'])?'true':'false'; ?>){
+  var userid = "<?php echo($data['id']); ?>";
+  var userpre = "<?php echo($data['prenom']); ?>";
+  var usernom = "<?php echo($data['nom']); ?>";
+  var usermail = "<?php echo($data['email']); ?>";
+
+}
+var sessionset = "<?php echo isset($_SESSION['user'])?'true':'false'; ?>";
+console.log(sessionset);
+
+
+document.getElementById("orbtn").onclick = function () {
+
+let cartItems = localStorage.getItem('productsInCart');
+let nbitems = localStorage.getItem('cartNumbers');
+let sessionset = localStorage.getItem('sessionset');
+//console.log(JSON.parse(cartItems));
+
+
+
+if(nbitems != 0){
+    if(sessionset){
+      //location.href = "pay.php";
+       $.post({
+        url: "pay.php",
+        method: "post",
+        data: {items : JSON.parse(cartItems)},
+        success: function(res){
+          console.log("res");      
+          location.href = "pay.php";    
+          },
+        })
+    }else {
+        location.href = "connexion.php?log_err=noconnect";
+    }
+}else {
+    document.getElementById("orbtn").className = "bg-orange-400 font-semibold py-3 text-sm text-white uppercase w-full rounded-md cursor-not-allowed";
+}
+
+};
+</script>
+<script type="text/javascript" src="paniertrait.js"></script>
+
 </body>
 </html>

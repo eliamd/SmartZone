@@ -1,0 +1,19 @@
+{
+    "name": "eliam/amahzonee",
+    "description": "site ecommerce pour projet de cours",
+    "type": "projet",
+    "require": {
+        "stripe/stripe-php": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eliam\\Amahzonee\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TexFR",
+            "email": "Texsword76@gmail.com"
+        }
+    ]
+}

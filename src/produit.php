@@ -124,6 +124,6 @@ while($row = $result->fetch()){
 <?php
 include 'footer.php';
 ?>
-<script type="text/javascript" src="panier.js"></script>
+<script type="text/javascript" src="paniertrait.js"></script>
 </body>
 </html>
