@@ -1,14 +1,9 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-//header('Content-Type: application/json');
-
 include 'connectdb.php';
 session_start();
 
 if(isset($_SESSION['user'])){
-
-  session_start();
 
   $user = $_SESSION['user'];
   $userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
@@ -108,20 +103,16 @@ document.getElementById("orbtn").onclick = function () {
 let cartItems = localStorage.getItem('productsInCart');
 let nbitems = localStorage.getItem('cartNumbers');
 let sessionset = localStorage.getItem('sessionset');
-//console.log(JSON.parse(cartItems));
-
 
 
 if(nbitems != 0){
     if(sessionset){
-      //location.href = "pay.php";
        $.post({
         url: "pay.php",
         method: "post",
         data: {items : JSON.parse(cartItems)},
         success: function(res){
-          console.log("res");      
-          location.href = "pay.php";    
+          location.href = res;    
           },
         })
     }else {

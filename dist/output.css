@@ -1236,6 +1236,10 @@ input[type="range"]::-ms-fill-lower {
   height: auto;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .min-h-\[750px\] {
   min-height: 750px;
 }
@@ -1511,6 +1515,10 @@ input[type="range"]::-ms-fill-lower {
   border-top-width: 1px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1588,6 +1596,11 @@ input[type="range"]::-ms-fill-lower {
 
 .fill-current {
   fill: currentColor;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-4 {

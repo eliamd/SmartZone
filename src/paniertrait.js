@@ -243,8 +243,6 @@ function deleteButtons() {
 }
 
 
-onloadcard();
-
 if (page.includes("panier")) {
     displaycart()
     localStorage.setItem('sessionset', sessionset);
@@ -252,5 +250,6 @@ if (page.includes("panier")) {
 
 if (page.includes("confirmation")) {
     localStorage.clear();
+    displaycart();
     onloadcard();
 }
