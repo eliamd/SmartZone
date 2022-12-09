@@ -54,7 +54,7 @@ include 'navbar.php';
             echo "
 
             <li class='py-3 sm:py-4 hover:bg-slate-50 rounded-sm'>
-            <a href='order?cmd=" . $row['order_id'] . "'>
+            <a href='order.php?cmd=" . $row['order_id'] . "'>
                 <div class='flex items-center'>
                     <div class='font-semibold'>
                         
