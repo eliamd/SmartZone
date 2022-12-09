@@ -31,7 +31,7 @@ if(isset($_SESSION['user'])){
 include 'navbar.php';
 ?>
 
-<div class=' bg-gray-100'>
+<div class=' bg-gray-100 min-h-screen'>
   <div class='container mx-auto mt-10'>
     <div class='flex shadow-md bg-gray-50 my-10 rounded-xl'>
       <div class='w-3/4 bg-white px-10 py-10 rounded-xl'>

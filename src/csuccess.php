@@ -25,16 +25,21 @@ $session = \Stripe\Checkout\Session::retrieve($id);
 
 $status = $session->payment_status;
 $totalprice = $session->amount_total / 100;
+$address = $session->shipping_details->address->line1;
+$city = $session->shipping_details->address->city;
+$postal = $session->shipping_details->address->postal_code;
+$phone = $session->customer_details->phone;
+
+echo $address;
 
 }else{
     header('Location:panier.php');
 }
 
-
  
 if($status = $session->payment_status == "paid"){
     //enregistrer la commande dans la base de donnée
-    $bdd->query("INSERT INTO orders (user_id, order_date, total_price, status) VALUES ('". $user ."', NOW(), $totalprice, '1')");
+    $bdd->query("INSERT INTO orders (user_id, order_date, total_price, status, phone, address, city, postal) VALUES ('". $user ."', NOW(), '$totalprice', '1', '$phone', '" . addslashes($address) . "', '$city', '$postal')");
     $order_id = $bdd->lastInsertId();
     //enregistrer les produits dans la base de donnée
     $items = json_decode($_GET['items']);

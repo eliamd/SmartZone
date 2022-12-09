@@ -23,7 +23,19 @@ include 'navbar.php';
 ?>
 
 
+<section class='bg-white min-h-[850px]'>
+    <div class='px-4 mx-auto max-w-screen-xl'>
+        <div class='mx-auto max-w-screen-sm pt-[25%] text-center'>
+            <h1 class='mb-4 text-7xl tracking-tight font-extrabold text-primary-600 '>Merci !</h1>
+            <p class='mb-4 text-lg text-black'>Merci pour votre commande n°<?php echo($_GET['confirm']); ?></p>
+            <p class='mb-4 text-lg font-bold text-black'>Vous recevrez rapidement un mail lorsque celle-ci sera envoyée.</p>
 
+            <a href='gestion.php' class='inline-flex text-white bg-orange-500 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center my-4'>Retourner à votre compte</a>
+        </div>   
+    </div>
+</section>
+
+"
 
 
 <?php

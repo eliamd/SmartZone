@@ -1,4 +1,4 @@
-<footer class="p-4 bg-white drop-shadow-lg rounded-lg shadow md:px-6 md:py-8">
+<footer class="p-4 bg-white drop-shadow-lg rounded-lg shadow md:px-6 md:py-8 mt-auto">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
       <img src="../content/img/logo.png" class="mr-3 h-10" alt="">

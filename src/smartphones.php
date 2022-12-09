@@ -24,7 +24,7 @@ if (!$result){
 include 'navbar.php';
 ?>
 
-<div class="flex ml-[5%] mr-auto max-w-[1400px]"> 
+<div class="flex ml-auto mr-auto w-fit"> 
 <div class="pt-36 pr-24">
 <form action="seach.php" method="get">
   <h3 class="mb-4 font-semibold text-gray-900 ">Marque</h3>
