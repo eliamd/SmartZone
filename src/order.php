@@ -77,7 +77,7 @@ include 'navbar.php';
                                  </div>
                                  <div class='flex justify-between space-x-8 items-start w-full'>
                                      <p class='text-base dark:text-white xl:text-lg leading-6'>" . $row['prixu'] . " €</p>
-                                     <p class='text-base dark:text-white xl:text-lg leading-6 text-gray-800'>" . $row['quantity'] . "</p>
+                                     <p class='text-base dark:text-white xl:text-lg leading-6 text-gray-800'>Quantité : " . $row['quantity'] . "</p>
                                      <p class='text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800'>" . $row['prixu'] * $row['quantity'] . "€</p>
                                  </div>
                              </div>
@@ -95,7 +95,7 @@ include 'navbar.php';
                             <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Résumé</h3>
                             <div class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                                 <div class="flex justify-between w-full">
-                                    <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
+                                    <p class="text-base dark:text-white leading-4 text-gray-800">Articles</p>
                                     <p class="text-base dark:text-gray-300 leading-4 text-gray-600"><?php echo $dataorder['total_price'] . '.00€'; ?></p>
                                 </div>
                                 <div class="flex justify-between items-center w-full">
