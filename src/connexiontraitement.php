@@ -19,7 +19,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             $password = hash('sha256', $password);
             if($data['password'] === $password){
                     $_SESSION['user'] = $data['id'];
-                    header('Location:gestion.php?log_err=succes_co');
+                    header('Location:accueil.php');
             }else header('Location:connexion.php?log_err=password');
         }else header('Location:connexion.php?log_err=novalidmail');
     }else header('Location:connexion.php?log_err=noaccount');

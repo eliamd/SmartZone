@@ -55,7 +55,7 @@ include 'navbar.php';
                     </div>
                     <form action="#" class="mb-6">
       <div class="mb-6">
-         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">e-mail</label>
+         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
          <input type="email" disabled id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="<?php echo $data['email']; ?>" required>
       </div>
       <div class="mb-6">
@@ -99,10 +99,10 @@ include 'navbar.php';
                         
                     </div>
                     <div class='flex-1 min-w-0'>
-                        <p class='text-sm font-medium text-gray-900 truncate dark:text-white'>
+                        <p class='text-sm max-w-[50%] font-medium text-gray-900 truncate dark:text-white'>
                         Commande #" . $row['order_id'] . "
                         </p>
-                        <p class='text-sm text-gray-500 truncate dark:text-gray-400 max-w-xs'>
+                        <p class='text-sm text-gray-500 truncate dark:text-gray-400 max-w-xs pr-4'>
                             Livraison : " . $row['address'] . ', ' . $row['city'] . ' ' . $row['postal'] . "
                         </p>
                         <p class='text-sm text-blue-700 max-w-xs'>
