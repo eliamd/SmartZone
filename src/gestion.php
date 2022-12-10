@@ -2,19 +2,20 @@
 
 include 'connectdb.php';
 session_start();
-if(isset($_SESSION['user'])){
-}else header('Location:connexion.php?log_err=noconnect');
+if (isset($_SESSION['user'])) {
+} else
+    header('Location:connexion.php?log_err=noconnect');
 
 session_start();
 
 $user = $_SESSION['user'];
 
 $orderinfo = $bdd->query("SELECT order_id, total_price, users.prenom, users.nom, orders.address, orders.postal, orders.city FROM `orders` INNER JOIN users ON orders.user_id = users.id WHERE user_id LIKE '" . $user . "';");
-if (!$orderinfo){
+if (!$orderinfo) {
     echo "invalid q";
-  }
+}
 
-$userinfo = $bdd->query("SELECT * FROM users WHERE id like '". $user ."'");
+$userinfo = $bdd->query("SELECT * FROM users WHERE id like '" . $user . "'");
 $data = $userinfo->fetch();
 
 ?>
@@ -35,42 +36,57 @@ $data = $userinfo->fetch();
 
 
     <?php
-include 'navbar.php';
-?>
+    include 'navbar.php';
+    ?>
 
     <did class="ml-auto mr-auto flex flex-col pt-10 min-h-screen w-fit">
-    <div class="max">
+        <div class="max">
             <h2 class="text-4xl font-bold">Tableau de bord.</h2>
-            <p class="text-lg font-normal text-gray-500">Retrouvez toutes les informations de votre compte ainsi que vos commandes.</p>
+            <p class="text-lg font-normal text-gray-500">Retrouvez toutes les informations de votre compte ainsi que vos
+                commandes.</p>
         </div>
         <div class="flex w-fit ml-auto mr-auto gap-40">
             <div class="pt-5">
                 <div
                     class="w-full p-5 bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex items-center justify-between mb-4">
-                        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Information personnelles</h5>
+                        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Information
+                            personnelles</h5>
                         <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-                            
+
                         </a>
                     </div>
                     <form action="#" class="mb-6">
-      <div class="mb-6">
-         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
-         <input type="email" disabled id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="<?php echo $data['email']; ?>" required>
-      </div>
-      <div class="mb-6">
-         <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
-         <input type="text" disabled id="subject" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="<?php echo $data['nom']; ?>" required>
-      </div>
-      <div class="mb-6">
-         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom</label>
-         <input type="text" disabled id="subject" class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="<?php echo $data['prenom']; ?>" required>
-      </div>
-      <div class="mb-6">
-         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date d'inscription</label>
-         <input type="text" disabled id="subject" class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="<?php echo $data['date_register']; ?>" required>
-      </div>
-   </form>
+                        <div class="mb-6">
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+                            <input type="email" disabled id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="<?php echo $data['email']; ?>" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="subject"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
+                            <input type="text" disabled id="subject"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="<?php echo $data['nom']; ?>" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom</label>
+                            <input type="text" disabled id="subject"
+                                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="<?php echo $data['prenom']; ?>" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date
+                                d'inscription</label>
+                            <input type="text" disabled id="subject"
+                                class="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="<?php echo $data['date_register']; ?>" required>
+                        </div>
+                    </form>
                 </div>
 
 
@@ -88,9 +104,9 @@ include 'navbar.php';
                     <div class='flow-root'>
                         <ul role='list' class='divide-y divide-gray-200 dark:divide-gray-700'>
 
-                            <?php 
-          while($row = $orderinfo->fetch()){
-            echo "
+                            <?php
+                            while ($row = $orderinfo->fetch()) {
+                                echo "
 
             <li class='py-3 sm:py-4 hover:bg-slate-50 rounded-sm'>
             <a href='order.php?cmd=" . $row['order_id'] . "'>
@@ -116,20 +132,21 @@ include 'navbar.php';
             </a>
             </li>
             ";
-          };
-            ?>
+                            }
+                            ;
+                            ?>
                         </ul>
                     </div>
                 </div>
-</div>
             </div>
         </div>
-    </div>
-</did>
+        </div>
+        </div>
+    </did>
 
     <?php
-include 'footer.php';
-?>
+    include 'footer.php';
+    ?>
 
 </body>
 

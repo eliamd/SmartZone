@@ -10,24 +10,26 @@ $result = $bdd->query("SELECT * FROM article WHERE id LIKE " . $queryss . ";");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../dist/output.css" rel="stylesheet">
-    <title>SmartZone</title>
-    <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
+  <title>SmartZone</title>
+  <link href="../content/img/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
+
 <body>
 
 
 
-<?php
+  <?php
 include 'navbar.php';
 ?>
 
-<?php
-while($row = $result->fetch()){
+  <?php
+while ($row = $result->fetch()) {
   echo "
   
 
@@ -79,13 +81,16 @@ while($row = $result->fetch()){
           <p id='prdcouleur' class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Couleur : " . $row["color"] . "</p>
           <p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Capacité : " . $row["spce_data"] . " Go</p>
           <p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Garantie 24 mois</p>
-          ";if($row["5G"] == 1){
-            echo"<p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Compatible 5G</p>";
-          }else{
-          }; echo "
+          ";
+  if ($row["5G"] == 1) {
+    echo "<p class='py-2 px-3 bg-gray-200 text-center border border-gray-400 rounded-2xl w-fit my-2'>Compatible 5G</p>";
+  } else {
+  }
+  ;
+  echo "
           </div>
           <div>
-            <h2 id='prdprix' class='text-4xl font-black'>" . $row["prixu"] . " €" ."</h2>
+            <h2 id='prdprix' class='text-4xl font-black'>" . $row["prixu"] . " €" . "</h2>
             <p class='text-sm'>0.02€ d'éco-part.</p>
           </div>
           <button type='button' class='addpanier text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg  px-5 py-2.5 my-2 text-center inline-flex items-center mr-2'>
@@ -97,8 +102,9 @@ while($row = $result->fetch()){
     </div>  
 
 <div class='m-auto w-fit max-w-6xl'>
-  ";if($row["5G"] == 1){
-    echo"
+  ";
+  if ($row["5G"] == 1) {
+    echo "
     <hr class='my-8 h-px bg-gray-200 border-0'>
     <div>
       <div class='flex justify-around'>
@@ -109,8 +115,10 @@ while($row = $result->fetch()){
       </div>
     </div>
     ";
-  }else{
-  }; echo "
+  } else {
+  }
+  ;
+  echo "
   <hr class='my-8 h-px bg-gray-200 border-0'>
   <div class='my-8'>
     <h2 class='pt-4 text-3xl font-extrabold'>Garantie légale de conformité de 2 ans</h2>
@@ -121,9 +129,10 @@ while($row = $result->fetch()){
 }
 ?>
 
-<?php
+  <?php
 include 'footer.php';
 ?>
-<script type="text/javascript" src="paniertrait.js"></script>
+  <script type="text/javascript" src="paniertrait.js"></script>
 </body>
+
 </html>
