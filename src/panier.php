@@ -70,7 +70,6 @@ include 'navbar.php';
             <label class='font-medium inline-block mb-3 text-sm uppercase pt-8'>Livraison</label>
             <select class='block p-2 text-gray-600 w-full text-sm rounded-xl'>
               <option>Expédition standard - Offerte</option>
-              <option>Expédition express - Offerte</option>
             </select>
           </div>
           <div class='border-t mt-8'>
@@ -111,7 +110,7 @@ include 'footer.php';
 
 
       if (nbitems != 0) {
-        if (sessionset) {
+        if (sessionset == "true") {
           $.post({
             url: "pay.php",
             method: "post",
