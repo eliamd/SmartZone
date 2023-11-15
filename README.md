@@ -1,13 +1,3 @@
----
-title: "SmartZone : Le site de vente de smartphones"
-date: 2023-11-15
-draft: false
-tags: ["E-Commerce", "Création de site web"]
-author: ["Eliam .D"]
-images:
-- https://i.imgur.com/L9rzeaL.png
----
-
 ![Image](https://i.imgur.com/L9rzeaL.png)
 
 > Ce projet a été réalisé dans le cadre de mes études (SIO1).
